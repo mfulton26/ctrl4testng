@@ -1,4 +1,4 @@
-package org.ctrl4testng.mock;
+package io.github.mfulton26.ctrl4testng.mock;
 
 import org.testng.ITestContext;
 import org.testng.ITestResult;

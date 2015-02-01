@@ -2,7 +2,7 @@
 <suite name="micro" parallel="methods">
     <test name="all">
         <packages>
-            <package name="org.ctrl4testng"/>
+            <package name="io.github.mfulton26.ctrl4testng"/>
         </packages>
     </test>
 </suite>

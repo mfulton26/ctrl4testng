@@ -1,4 +1,4 @@
-package org.ctrl4testng;
+package io.github.mfulton26.ctrl4testng;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
+import io.github.mfulton26.ctrl4testng.ForwardingLogger;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;

@@ -1,4 +1,4 @@
-package org.ctrl4testng;
+package io.github.mfulton26.ctrl4testng;
 
 import com.google.common.util.concurrent.UncheckedExecutionException;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package org.ctrl4testng;
+package io.github.mfulton26.ctrl4testng;
 
 import java.util.Collections;
 import java.util.Iterator;

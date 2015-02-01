@@ -1,6 +1,6 @@
-package org.ctrl4testng;
+package io.github.mfulton26.ctrl4testng;
 
-import org.ctrl4testng.mock.MockedTestResultBuilder;
+import io.github.mfulton26.ctrl4testng.mock.MockedTestResultBuilder;
 import org.testng.ITestResult;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

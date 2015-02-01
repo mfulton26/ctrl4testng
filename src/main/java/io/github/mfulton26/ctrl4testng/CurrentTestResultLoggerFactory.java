@@ -1,4 +1,4 @@
-package org.ctrl4testng;
+package io.github.mfulton26.ctrl4testng;
 
 import com.google.common.base.Supplier;
 import org.slf4j.Logger;

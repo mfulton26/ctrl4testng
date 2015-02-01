@@ -1,4 +1,4 @@
-package org.ctrl4testng;
+package io.github.mfulton26.ctrl4testng;
 
 import org.slf4j.Logger;
 import org.slf4j.Marker;
