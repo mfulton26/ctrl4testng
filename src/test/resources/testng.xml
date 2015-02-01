@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="micro" parallel="methods">
+    <test name="all">
+        <packages>
+            <package name="org.ctrl4testng"/>
+        </packages>
+    </test>
+</suite>
