@@ -1,7 +1,6 @@
 package io.github.mfulton26.ctrl4testng;
 
 import com.google.common.base.Function;
-import com.google.common.base.Supplier;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -18,27 +17,20 @@ import org.testng.Reporter;
  */
 class CurrentTestResultLogger extends ForwardingLogger {
 
-    private final Supplier<Logger> currentLogger = new Supplier<Logger>() {
-        private final LoadingCache<ITestResult, Logger> loadingCache = CacheBuilder.newBuilder().build(
-            CacheLoader.from(new Function<ITestResult, Logger>() {
-                private final TestResultToLoggerNameFunction testResultToLoggerNameFunction =
-                    new TestResultToLoggerNameFunction();
+    private final LoadingCache<ITestResult, Logger> loadingCache = CacheBuilder.newBuilder()
+        .build(CacheLoader.from(new Function<ITestResult, Logger>() {
+            private final TestResultToLoggerNameFunction testResultToLoggerNameFunction =
+                new TestResultToLoggerNameFunction();
 
-                @Override
-                public Logger apply(ITestResult input) {
-                    return LoggerFactory.getLogger(testResultToLoggerNameFunction.apply(input));
-                }
-            }));
-
-        @Override
-        public Logger get() {
-            return loadingCache.getUnchecked(Reporter.getCurrentTestResult());
-        }
-    };
+            @Override
+            public Logger apply(ITestResult input) {
+                return LoggerFactory.getLogger(testResultToLoggerNameFunction.apply(input));
+            }
+        }));
 
     @Override
     protected Logger getLogger() {
-        return currentLogger.get();
+        return loadingCache.getUnchecked(Reporter.getCurrentTestResult());
     }
 
 }
