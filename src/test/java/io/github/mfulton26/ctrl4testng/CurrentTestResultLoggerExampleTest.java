@@ -7,6 +7,7 @@ import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 
 /**
+ * Logger category format: [method-name]{[method-parameters]} on [class-name]{[class-parameters]} in [xml-suite-name]
  * Example output:
  * <pre>
  *     10:45:12.258 [main] INFO  log{} on DataDrivenClass{message=message 1} in ctrl4testng - message 1
