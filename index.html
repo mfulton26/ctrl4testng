@@ -44,6 +44,39 @@
 
 <p>Simply change your <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> initializations to use <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CurrentTestResultLoggerFactory.java">CurrentTestResultLoggerFactory</a> instead of <a href="http://slf4j.org/api/org/slf4j/LoggerFactory.html">org.slf4j.LoggerFactory</a>.
 See <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CurrentTestResultLoggerExampleTest.java">CurrentTestResultLoggerExampleTest</a> for an example including example output.</p>
+
+<p>Alternatively you can also statically import the constant <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> field, <code>LOGGER</code>, from <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java">CTRL4TestNG</a>.</p>
+
+<h3>
+<a id="logger-category-format" class="anchor" href="#logger-category-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logger Category Format</h3>
+
+<p>CTRL4TestNG forwards logging requests to a unique <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> for each Before/After/Test TestNG method. Each method's logger has is named, by default, using the following format:</p>
+
+<pre><code>[method-name]{[method-parameters]} on [class-name]{[class-parameters]} in [xml-suite-name]
+</code></pre>
+
+<h3>
+<a id="example-output" class="anchor" href="#example-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Output</h3>
+
+<p>The following example output is from running <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CurrentTestResultLoggerExampleTest.java">CurrentTestResultLoggerExampleTest</a> with TestNG.</p>
+
+<pre><code>11:11:09.335 [main] INFO  log{} on DataDrivenClass{message=message 1} in ctrl4testng - message 1
+11:11:09.339 [main] INFO  log{} on DataDrivenClass{message=message 2} in ctrl4testng - message 2
+11:11:09.342 [main] INFO  info{message 1} on DataDrivenMethod{} in ctrl4testng - message 1
+11:11:09.342 [main] INFO  info{message 2} on DataDrivenMethod{} in ctrl4testng - message 2
+11:11:09.344 [main] ERROR error{} on Simple{} in ctrl4testng - this is an error log message
+11:11:09.346 [main] INFO  info{} on Simple{} in ctrl4testng - this is an informational log message
+11:11:09.347 [main] WARN  warn{} on Simple{} in ctrl4testng - this is a warning log message
+11:11:09.349 [main] INFO  tearDownMethod{} on Simple{} in ctrl4testng - supports before and after methods too
+</code></pre>
+
+<h2>
+<a id="limitations" class="anchor" href="#limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limitations</h2>
+
+<h3>
+<a id="custom-logger-category-format" class="anchor" href="#custom-logger-category-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Logger Category Format</h3>
+
+<p>CTRL4TestNG does not currently support defining your own format for the category names it uses. (<a href="https://github.com/mfulton26/ctrl4testng/issues/1">Known Enhancement</a>)</p>
         </section>
 
         <footer>
