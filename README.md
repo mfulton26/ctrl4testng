@@ -10,3 +10,4 @@ Usage
 ------------------
 Simply change your [Logger](http://slf4j.org/api/org/slf4j/Logger.html) initializations to use [CurrentTestResultLoggerFactory](https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CurrentTestResultLoggerFactory.java) instead of [org.slf4j.LoggerFactory](http://slf4j.org/api/org/slf4j/LoggerFactory.html).
 See [CurrentTestResultLoggerExampleTest](https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CurrentTestResultLoggerExampleTest.java) for an example including example output.
+Alternatively you can also statically import the constant [Logger](http://slf4j.org/api/org/slf4j/Logger.html) field, `LOGGER`, from [CTRL4TestNG](https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java).
