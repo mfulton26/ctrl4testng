@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.testng.ITestResult;
 
 /**
- * A {@link Function} that takes an {@link ITestResult} as input and returns {@link String} intended for the name of a
+ * A {@link Function} that takes an {@link ITestResult} as input and returns a {@link String} intended for the name of a
  * {@link Logger}.
  *
  * @author Mark Fulton

@@ -5,8 +5,8 @@ import org.slf4j.Marker;
 
 /**
  * A logger which forwards all its method calls to another logger. Subclasses should override one or more methods to
- * modify the behavior of the backing list as desired per the <a href="http://en.wikipedia.org/wiki/Decorator_pattern">
- * decorator pattern</a>.
+ * modify the behavior of the backing logger as desired per the <a href="http://en.wikipedia.org/wiki/Decorator_pattern"
+ * >decorator pattern</a>.
  *
  * @author Mark Fulton
  */
