@@ -21,11 +21,10 @@ import static com.google.common.truth.Truth.ASSERT;
 /**
  * @author Mark Fulton
  */
-public class CurrentTestResultLoggerTest {
+public class CTRL4TestNGTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CurrentTestResultLoggerTest.class);
-    private static final CurrentTestResultLogger CURRENT_TEST_RESULT_LOGGER =
-        (CurrentTestResultLogger) CTRL4TestNG.LOGGER;
+    private static final Logger LOGGER = LoggerFactory.getLogger(CTRL4TestNGTest.class);
+    private static final CTRL4TestNG CTRL4TESTNG_LOGGER = (CTRL4TestNG) CTRL4TestNG.LOGGER;
     private static final int PARALLEL_TEST_COUNT = 10;
 
     private final Set<Logger> loggers = Collections.newSetFromMap(new ConcurrentHashMap<Logger, Boolean>());
@@ -46,7 +45,7 @@ public class CurrentTestResultLoggerTest {
     public void getLogger(String id) throws InterruptedException {
         try {
             LOGGER.info("checking for unique logger for current parallel test");
-            Logger logger = CURRENT_TEST_RESULT_LOGGER.getLogger();
+            Logger logger = CTRL4TESTNG_LOGGER.getLogger();
             ASSERT.that(loggers.add(logger)).isTrue();
             ASSERT.that(logger.getName()).contains(id);
         }
@@ -59,7 +58,7 @@ public class CurrentTestResultLoggerTest {
 
     @Test
     public void getSameLogger() {
-        ASSERT.that(CURRENT_TEST_RESULT_LOGGER.getLogger()).isSameAs(CURRENT_TEST_RESULT_LOGGER.getLogger());
+        ASSERT.that(CTRL4TESTNG_LOGGER.getLogger()).isSameAs(CTRL4TESTNG_LOGGER.getLogger());
     }
 
     private static Iterator<Object[]> testDataForIdsFrom(Range<Integer> range) {
