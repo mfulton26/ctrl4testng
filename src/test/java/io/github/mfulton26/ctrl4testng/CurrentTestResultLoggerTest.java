@@ -25,7 +25,7 @@ public class CurrentTestResultLoggerTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CurrentTestResultLoggerTest.class);
     private static final CurrentTestResultLogger CURRENT_TEST_RESULT_LOGGER =
-        (CurrentTestResultLogger) CurrentTestResultLoggerFactory.getLogger();
+        (CurrentTestResultLogger) CTRL4TestNG.LOGGER;
     private static final int PARALLEL_TEST_COUNT = 10;
 
     private final Set<Logger> loggers = Collections.newSetFromMap(new ConcurrentHashMap<Logger, Boolean>());
@@ -55,6 +55,11 @@ public class CurrentTestResultLoggerTest {
             countDownLatch.countDown();
             countDownLatch.await();
         }
+    }
+
+    @Test
+    public void getSameLogger() {
+        ASSERT.that(CURRENT_TEST_RESULT_LOGGER.getLogger()).isSameAs(CURRENT_TEST_RESULT_LOGGER.getLogger());
     }
 
     private static Iterator<Object[]> testDataForIdsFrom(Range<Integer> range) {

@@ -12,7 +12,7 @@ public class CTRL4TestNGTest {
 
     @Test
     public void instance() {
-        ASSERT.that(LOGGER).isSameAs(CurrentTestResultLoggerFactory.getLogger());
+        ASSERT.that(LOGGER).isSameAs(LOGGER);
     }
 
 }

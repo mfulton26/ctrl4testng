@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
  */
 public class CurrentTestResultLoggerExampleTest {
 
-    private static final Logger LOGGER = CurrentTestResultLoggerFactory.getLogger();
+    private static final Logger LOGGER = CTRL4TestNG.LOGGER;
 
     public static class Simple {
 
