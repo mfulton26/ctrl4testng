@@ -16,8 +16,10 @@ As [CTRL4TestNG](https://github.com/mfulton26/ctrl4testng/blob/master/src/main/j
 
 [CTRL4TestNG](https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java) forwards logging requests to a unique [Logger](http://slf4j.org/api/org/slf4j/Logger.html) for each Before/After/Test TestNG method. Each method's logger is named using the following format:
 ```
-[method-name]{[method-parameters]} on [class-name]{[class-parameters]} in [xml-suite-name]
+[method-name]{[method-parameters]} on [class-instance-string] in [xml-suite-name]
 ```
+
+The *class-instance-string* is either the test class's [`toString()`](http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#toString()) return value, if overriden, or the test class's [simple name](http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html#getSimpleName()).
 
 ### Example Output
 
