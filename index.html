@@ -37,28 +37,30 @@
 <p><a href="https://travis-ci.org/mfulton26/ctrl4testng"><img src="https://travis-ci.org/mfulton26/ctrl4testng.svg?branch=master" alt="Build Status"></a>
 <a href="https://coveralls.io/r/mfulton26/ctrl4testng?branch=master"><img src="https://coveralls.io/repos/mfulton26/ctrl4testng/badge.svg?branch=master" alt="Coverage Status"></a></p>
 
-<p>CTRL4TestNG provides an SLF4J Logger that can be used from any TestNG method tied to an ITestResult, namely Before, After, and Test annotations. Each separate method will have its own unique Logger and can be used with TestNG's parallel testing support making it clear which logs came from which method even when data-driven.</p>
+<p>The <a href="https://mfulton26.github.io/ctrl4testng/">Current Test Result Logger for TestNG (CTRL4TestNG)</a> provides an <a href="http://www.slf4j.org/">SLF4J</a> <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> that can be used from any <a href="http://testng.org/">TestNG</a> method tied to an <a href="http://testng.org/javadoc/org/testng/ITestResult.html">ITestResult</a> (i.e. methods annotated as <a href="http://testng.org/javadoc/org/testng/annotations/Test.html">Test</a>, <a href="http://testng.org/javadoc/org/testng/annotations/BeforeClass.html">BeforeClass</a>, <a href="http://testng.org/javadoc/org/testng/annotations/AfterClass.html">AfterClass</a>, etc.). Each separate method will have its own unique Logger and can be used with TestNG's <a href="http://testng.org/doc/documentation-main.html#parallel-running">parallel testing support</a> making it clear which logs came from which method even when <a href="http://en.wikipedia.org/wiki/Data-driven_testing">data-driven</a> by means of <a href="http://testng.org/doc/documentation-main.html#parameters-dataproviders">DataProviders</a> and/or <a href="http://testng.org/doc/documentation-main.html#factories">Factories</a>.</p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>Simply change your <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> initializations to use <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CurrentTestResultLoggerFactory.java">CurrentTestResultLoggerFactory</a> instead of <a href="http://slf4j.org/api/org/slf4j/LoggerFactory.html">org.slf4j.LoggerFactory</a>.
-See <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CurrentTestResultLoggerExampleTest.java">CurrentTestResultLoggerExampleTest</a> for an example including example output.</p>
+<p>Simply change your <a href="http://www.slf4j.org/">SLF4J</a> <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> initializations in your code to use <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java">CTRL4TestNG</a>'s <code>LOGGER</code> constant instead of <a href="http://www.slf4j.org/">SLF4J</a>'s <a href="http://slf4j.org/api/org/slf4j/LoggerFactory.html">LoggerFactory</a>.
+See <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CTRL4TestNGExampleTest.java">CTRL4TestNGExampleTest</a> for an example including example output.</p>
 
-<p>Alternatively you can also statically import the constant <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> field, <code>LOGGER</code>, from <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java">CTRL4TestNG</a>.</p>
+<p>As <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java">CTRL4TestNG</a>'s <code>LOGGER</code> constant is a <code>public static</code> you can also use it through <a href="http://en.wikipedia.org/wiki/Static_import">static import</a>.</p>
 
 <h3>
 <a id="logger-category-format" class="anchor" href="#logger-category-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logger Category Format</h3>
 
-<p>CTRL4TestNG forwards logging requests to a unique <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> for each Before/After/Test TestNG method. Each method's logger has is named, by default, using the following format:</p>
+<p><a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java">CTRL4TestNG</a> forwards logging requests to a unique <a href="http://slf4j.org/api/org/slf4j/Logger.html">Logger</a> for each Before/After/Test TestNG method. Each method's logger is named using the following format:</p>
 
-<pre><code>[method-name]{[method-parameters]} on [class-name]{[class-parameters]} in [xml-suite-name]
+<pre><code>[method-name]{[method-parameters]} on [class-instance-string] in [xml-suite-name]
 </code></pre>
+
+<p>The <em>class-instance-string</em> is either the test class's <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#toString()"><code>toString()</code></a> return value, if overriden, or the test class's <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html#getSimpleName()">simple name</a>.</p>
 
 <h3>
 <a id="example-output" class="anchor" href="#example-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Output</h3>
 
-<p>The following example output is from running <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CurrentTestResultLoggerExampleTest.java">CurrentTestResultLoggerExampleTest</a> with TestNG.</p>
+<p>The following example output is from running <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CTRL4TestNGExampleTest.java">CTRL4TestNGExampleTest</a> with <a href="http://testng.org/">TestNG</a>.</p>
 
 <pre><code>11:11:09.335 [main] INFO  log{} on DataDrivenClass{message=message 1} in ctrl4testng - message 1
 11:11:09.339 [main] INFO  log{} on DataDrivenClass{message=message 2} in ctrl4testng - message 2
@@ -69,14 +71,6 @@ See <a href="https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/
 11:11:09.347 [main] WARN  warn{} on Simple{} in ctrl4testng - this is a warning log message
 11:11:09.349 [main] INFO  tearDownMethod{} on Simple{} in ctrl4testng - supports before and after methods too
 </code></pre>
-
-<h2>
-<a id="limitations" class="anchor" href="#limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limitations</h2>
-
-<h3>
-<a id="custom-logger-category-format" class="anchor" href="#custom-logger-category-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Logger Category Format</h3>
-
-<p>CTRL4TestNG does not currently support defining your own format for the category names it uses. (<a href="https://github.com/mfulton26/ctrl4testng/issues/1">Known Enhancement</a>)</p>
         </section>
 
         <footer>
