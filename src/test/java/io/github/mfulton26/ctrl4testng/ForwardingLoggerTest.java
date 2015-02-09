@@ -7,7 +7,6 @@ import java.util.Iterator;
 
 import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
-import io.github.mfulton26.ctrl4testng.ForwardingLogger;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
@@ -41,7 +40,7 @@ public class ForwardingLoggerTest {
     private final Logger mockedLogger = mock(Logger.class);
     private final Logger forwardingLogger = new ForwardingLogger() {
         @Override
-        protected Logger getLogger() {
+        protected Logger delegate() {
             return mockedLogger;
         }
     };

@@ -31,7 +31,7 @@ public class CTRL4TestNG extends ForwardingLogger {
         new TestResultToLoggerNameFunction();
 
     @Override
-    protected Logger getLogger() {
+    protected Logger delegate() {
         Logger logger;
         ITestResult testResult = Reporter.getCurrentTestResult();
         Object attributeValue = testResult.getAttribute(LOGGER_ATTRIBUTE_NAME);

@@ -45,7 +45,7 @@ public class CTRL4TestNGTest {
     public void getLogger(String id) throws InterruptedException {
         try {
             LOGGER.info("checking for unique logger for current parallel test");
-            Logger logger = CTRL4TESTNG_LOGGER.getLogger();
+            Logger logger = CTRL4TESTNG_LOGGER.delegate();
             ASSERT.that(loggers.add(logger)).isTrue();
             ASSERT.that(logger.getName()).contains(id);
         }
@@ -58,7 +58,7 @@ public class CTRL4TestNGTest {
 
     @Test
     public void getSameLogger() {
-        ASSERT.that(CTRL4TESTNG_LOGGER.getLogger()).isSameAs(CTRL4TESTNG_LOGGER.getLogger());
+        ASSERT.that(CTRL4TESTNG_LOGGER.delegate()).isSameAs(CTRL4TESTNG_LOGGER.delegate());
     }
 
     private static Iterator<Object[]> testDataForIdsFrom(Range<Integer> range) {
