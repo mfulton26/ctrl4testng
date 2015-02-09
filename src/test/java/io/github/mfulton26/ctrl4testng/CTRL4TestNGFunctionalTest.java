@@ -23,7 +23,8 @@ import org.testng.annotations.Test;
  *
  * @author Mark Fulton
  */
-public class CTRL4TestNGTest {
+@Test
+public class CTRL4TestNGFunctionalTest {
 
     private static final Logger LOGGER = CTRL4TestNG.LOGGER;
 

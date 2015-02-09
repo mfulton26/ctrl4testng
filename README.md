@@ -8,7 +8,7 @@ CTRL4TestNG provides an SLF4J Logger that can be used from any TestNG method tie
 ## Usage
 
 Simply change your [Logger](http://slf4j.org/api/org/slf4j/Logger.html) initializations to use [CTRL4TestNG](https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java)'s `LOGGER` instead of [org.slf4j.LoggerFactory](http://slf4j.org/api/org/slf4j/LoggerFactory.html).
-See [CTRL4TestNGTest](https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CTRL4TestNGTest.java) for an example including example output.
+See [CTRL4TestNGFunctionalTest](https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CTRL4TestNGFunctionalTest.java) for an example including example output.
 
 Alternatively you can also statically import the constant [Logger](http://slf4j.org/api/org/slf4j/Logger.html) field, `LOGGER`, from [CTRL4TestNG](https://github.com/mfulton26/ctrl4testng/blob/master/src/main/java/io/github/mfulton26/ctrl4testng/CTRL4TestNG.java).
 
@@ -21,7 +21,7 @@ CTRL4TestNG forwards logging requests to a unique [Logger](http://slf4j.org/api/
 
 ### Example Output
 
-The following example output is from running [CTRL4TestNGTest](https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CTRL4TestNGTest.java) with TestNG.
+The following example output is from running [CTRL4TestNGFunctionalTest](https://github.com/mfulton26/ctrl4testng/blob/master/src/test/java/io/github/mfulton26/ctrl4testng/CTRL4TestNGFunctionalTest.java) with TestNG.
 ```
 11:11:09.335 [main] INFO  log{} on DataDrivenClass{message=message 1} in ctrl4testng - message 1
 11:11:09.339 [main] INFO  log{} on DataDrivenClass{message=message 2} in ctrl4testng - message 2
