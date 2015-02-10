@@ -25,7 +25,7 @@ class TestResultToLoggerNameFunction implements Function<ITestResult, String> {
         String instanceString = iterator.hasNext()
             ? iterator.next()
             : Classes.uncheckedForName(input.getInstanceName()).getSimpleName() + "{}";
-        String parametersString = Joiner.on(", ").join(input.getParameters());
+        String parametersString = Joiner.on(", ").useForNull("null").join(input.getParameters());
         return String.format("%s{%s} on %s in %s", methodName, parametersString, instanceString,
                              currentXmlTestName);
     }

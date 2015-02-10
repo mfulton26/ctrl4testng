@@ -84,6 +84,15 @@ public class TestResultToLoggerNameFunctionTest {
                     .instanceName("java.lang.Object")
                     .build(),
                 "toString{} on Object{} in some other test name"
+            },
+            {
+                new MockedTestResultBuilder()
+                    .currentXmlTestName("yet another test name")
+                    .name("equals")
+                    .instanceName("java.lang.Object")
+                    .parameters(new Object[]{ null })
+                    .build(),
+                "equals{null} on Object{} in yet another test name"
             }
         };
     }
