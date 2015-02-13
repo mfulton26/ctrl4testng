@@ -1,10 +1,10 @@
 # CTRL4TestNG: Current Test Result Logger for TestNG
 
-[![Join the chat at https://gitter.im/mfulton26/ctrl4testng](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mfulton26/ctrl4testng?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Build Status](https://travis-ci.org/mfulton26/ctrl4testng.svg?branch=master)](https://travis-ci.org/mfulton26/ctrl4testng)
 [![Coverage Status](https://coveralls.io/repos/mfulton26/ctrl4testng/badge.svg?branch=master)](https://coveralls.io/r/mfulton26/ctrl4testng?branch=master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.mfulton26.ctrl4testng/ctrl4testng/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.mfulton26.ctrl4testng/ctrl4testng)
+
+[![Join the chat at https://gitter.im/mfulton26/ctrl4testng](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mfulton26/ctrl4testng?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 The [Current Test Result Logger for TestNG (CTRL4TestNG)](https://mfulton26.github.io/ctrl4testng/) provides an [SLF4J](http://www.slf4j.org/) [Logger](http://slf4j.org/api/org/slf4j/Logger.html) that can be used from any [TestNG](http://testng.org/) method tied to an [ITestResult](http://testng.org/javadoc/org/testng/ITestResult.html) (i.e. methods annotated as [Test](http://testng.org/javadoc/org/testng/annotations/Test.html), [BeforeClass](http://testng.org/javadoc/org/testng/annotations/BeforeClass.html), [AfterClass](http://testng.org/javadoc/org/testng/annotations/AfterClass.html), etc.). Each separate method will have its own unique Logger and can be used with TestNG's [parallel testing support](http://testng.org/doc/documentation-main.html#parallel-running) making it clear which logs came from which method even when [data-driven](http://en.wikipedia.org/wiki/Data-driven_testing) by means of [DataProviders](http://testng.org/doc/documentation-main.html#parameters-dataproviders) and/or [Factories](http://testng.org/doc/documentation-main.html#factories).
 
