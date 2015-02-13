@@ -8,8 +8,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
-* @author Mark Fulton
-*/
+ * @author Mark Fulton
+ */
 public class MockedTestResultBuilder {
 
     private ITestContext testContext;

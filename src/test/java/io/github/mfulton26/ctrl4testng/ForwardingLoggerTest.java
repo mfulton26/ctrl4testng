@@ -18,9 +18,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 /**
- * This test class is simply here to document the fact that no unit testing is done for {@link ForwardingLogger} herein
- * as the class was generated using delegate methods in IntelliJ IDEA 14.
- *
  * @author Mark Fulton
  */
 public class ForwardingLoggerTest {
