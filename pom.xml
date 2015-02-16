@@ -93,6 +93,31 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.1.4</version>
+                <configuration>
+                    <targetClasses>
+                        <param>io.github.mfulton26.ctrl4testng.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>io.github.mfulton26.ctrl4testng.*</param>
+                    </targetTests>
+                    <outputFormats>
+                        <outputFormat>XML</outputFormat>
+                        <outputFormat>HTML</outputFormat>
+                    </outputFormats>
+                    <mutationThreshold>100</mutationThreshold>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

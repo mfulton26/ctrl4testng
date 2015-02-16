@@ -13,6 +13,7 @@ import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Range;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -61,12 +62,40 @@ public class CTRL4TestNGTest {
         ASSERT.that(CTRL4TESTNG_LOGGER.delegate()).isSameAs(CTRL4TESTNG_LOGGER.delegate());
     }
 
+    @Test
+    public void loggerCaching() {
+        Object cachedLogger = getCachedLogger();
+        ASSERT.that(cachedLogger).isNull();
+        Logger delegate = CTRL4TESTNG_LOGGER.delegate();
+        cachedLogger = getCachedLogger();
+        ASSERT.that(delegate).isSameAs(cachedLogger);
+        ASSERT.that(cachedLogger.getClass()).isAssignableTo(Logger.class);
+        delegate = CTRL4TESTNG_LOGGER.delegate();
+        ASSERT.that(delegate).isSameAs(cachedLogger);
+        cachedLogger = getCachedLogger();
+        ASSERT.that(delegate).isSameAs(cachedLogger);
+    }
+
+    private Object getCachedLogger() {
+        return Reporter.getCurrentTestResult().getAttribute(CTRL4TestNG.LOGGER_ATTRIBUTE_NAME);
+    }
+
+    @Test
+    public void badCachedLogger() {
+        setCachedLogger("bad");
+        ASSERT.that(CTRL4TESTNG_LOGGER.delegate().getClass()).isAssignableTo(Logger.class);
+    }
+
+    private void setCachedLogger(Object cachedLogger) {
+        Reporter.getCurrentTestResult().setAttribute(CTRL4TestNG.LOGGER_ATTRIBUTE_NAME, cachedLogger);
+    }
+
     private static Iterator<Object[]> testDataForIdsFrom(Range<Integer> range) {
         return FluentIterable.from(ContiguousSet.create(range, DiscreteDomain.integers()))
             .transform(new Function<Integer, Object[]>() {
                 @Override
                 public Object[] apply(Integer input) {
-                    return new Object[]{ input.toString() };
+                    return new Object[] { input.toString() };
                 }
             })
             .iterator();
